@@ -1,0 +1,546 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Ravi+Prakash');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: steelblue;
+	font-family: 'Ravi Prakash', Gotham, sans-serif;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+}
+
+button, a {
+	font-family: 'Ravi Prakash', Gotham, sans-serif;
+	font-size: 1.4rem;
+}
+
+button {
+	background: none;
+	border: none;
+}
+
+button:hover, button:focus, a:hover {
+	opacity: 0.75;
+	outline: none;
+	cursor: pointer;
+}
+
+button:hover {
+	border-bottom: 1px solid white;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+h3 {
+	font-size: 2rem;	
+}
+
+h4 {
+	font-size: 1.6rem;
+}
+
+#welcome-holder {
+	background: lightsteelblue;
+	z-index: 5;
+	position: fixed;
+	width: 100vw;
+	min-width: 800px;
+	height: 100vh;
+	min-height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 120px;
+}
+
+#welcome-holder h1 {
+padding-bottom: 30px;
+font-size: 4rem;
+font-family: 'Ravi Prakash', Gotham, sans-serif;
+}
+
+#welcome-inner-holder {
+	margin: 0 auto;
+	padding-bottom: 30px;
+	width: 80%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#char-holder {
+	width: 100%;
+	height: 250px;
+	float: left;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 30px 30px 0 60px;
+}
+
+#char-holder img {
+	width: 25%;
+	height: inherit;
+}
+
+.bubble {
+position: relative;
+width: 350px;
+height: 270px;
+padding: 0px;
+background: steelblue;
+-webkit-border-radius: 100px;
+-moz-border-radius: 100px;
+border-radius: 100px;
+clear: right;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.bubble:after {
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 35px 35px 0;
+border-color: steelblue transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -15px;
+bottom: -15px;
+left: 20%;
+}
+
+.bubble p {
+font-family: 'Raleway', Gotham, sans-serif;
+padding: 40px;
+color: white;
+text-align: center;
+line-height: 1.6rem;
+}
+
+#welcome-option {
+	font-size: 3rem;
+	position: relative;
+	top: 100px;
+}
+
+#welcome-option:hover {
+	border: none;
+	font-size: 3.4rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+#ingredients-area {
+	border-right: 15px solid white;
+	min-width: 260px;
+	max-width: 260px;
+	flex-grow: 1;
+	height: 100vh;
+	background: lightsteelblue;
+	overflow-y: auto;
+}
+
+#ingredients-area-two {
+	border-left: 15px solid white;
+	min-width: 300px;
+	max-width: 300px;
+	flex-grow: 1;
+	height: 100vh;
+	background: lightsteelblue;
+	overflow-y: auto;	
+}
+
+.ingredient-option-holder, #end-option-holder, #results-holder {
+	padding-left: 10px;
+}
+
+#finisher-option-holder {
+	pointer-events: none;
+	opacity: 0.33;
+}
+
+#end-option-holder {
+	padding-top: 50px;
+}
+
+#results-option, #reset-option, #go-to-main {
+	font-size: 2rem;
+	display: block;
+}
+
+#reset-option {
+	display: none;
+}
+
+#go-to-main {
+	margin: 10px 0 30px 0;
+	padding-left: 5px;
+	border-bottom: 5px solid black;
+}
+
+#results-option {
+	border-top: 5px solid black;
+}
+
+#results-holder p {
+	font-family: 'Raleway', Gotham, sans-serif;
+	padding-right: 10px;
+}
+
+#results-brella {
+	padding-top: 30px;
+	display: none;
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#work-area {
+	/*
+	width: 60vw;
+	min-width: 300px;
+	max-width: 1200px;
+	*/
+	flex-grow: 2;
+	height: 100vh;
+	background: steelblue;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#glass-layer {
+	z-index: 4;
+	opacity: 0.65;
+	width: 400px;
+	height: 500px;
+	background: url(../images/glassware-highball.svg);
+	background-position: center;
+	background-size: 80% 100%;
+	background-repeat: no-repeat;
+	padding-bottom: 500px;
+	margin-bottom: -500px;
+}
+
+#primary-layer, #secondary-layer, #tertiary-layer, #quaternary-layer {
+	width: 130px;
+	overflow: hidden;
+	backface-visibility: hidden;
+	transform: translate3d(0, 0, 0) scaleX(2);
+}
+
+#info-layer {
+	padding-top: 50px;
+	width: 600px;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#info-layer p {
+	font-size: 1.4rem;
+	padding: 0 10px;
+}
+
+#primary-layer {
+	border-bottom-left-radius: 30%;
+	border-bottom-right-radius: 30%;
+}
+
+#primary-layer, #secondary-layer, #tertiary-layer, #quaternary-layer {
+	z-index: 3;
+	height: 120px;
+	margin-top: -20px;
+}
+
+#quaternary-layer {
+	opacity: 0.75;
+	border-top-left-radius: 3%;
+	border-top-right-radius: 3%;
+}
+
+#finisher-layer {
+	z-index: 2;
+	height: 50px;
+	width: 300px;
+}
+
+#end-option-holder {
+	display: none;
+}
+
+#garnish-wedge, #garnish-splash, #garnish-float, #garnish-stalk, #garnish-rim {
+	position: relative;
+	opacity: 0;
+}
+
+#garnish-wedge {
+	top: -80px;
+	right: -90px;
+	width: 200px;
+	height: 200px;
+	float: right;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#garnish-splash {
+	left: 150px;
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 75px;
+    border-bottom-right-radius: 75px;
+    border-bottom-left-radius: 75px;
+    transform:rotate(45deg);
+}
+
+#garnish-float {
+	margin-top:-75px;
+	left: 30px;
+	right: 0px;
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#garnish-stalk {
+	margin-top:-250px;
+	left: 20px;
+	width: 50px;
+	height: 400px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+#garnish-rim {
+	margin-top:-440px;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#primary-layer-wavey, #secondary-layer-wavey, #tertiary-layer-wavey, #quaternary-layer-wavey {
+	opacity: 0;
+}
+
+.fill-anim, .fill-anim-long {
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(.2, .6, .8, .4);
+	animation-duration: 0.35s;
+	animation-fill-mode: forwards;
+}
+
+.fill-anim {
+	animation-name: verticalFill;
+}
+
+.fill-anim-long {
+	animation-name: verticalFillLong;
+}
+
+.wavey-anim {
+	animation-name: waveyFill;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 4s;
+}
+
+.bobby-anim {
+	animation-name: bobbyFill;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	animation-duration: 4s;
+}
+
+.wedge-anim {
+	animation-name: garnishWedge;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(.4, .9, .9, .9);
+	animation-duration: 0.25s;
+}
+
+.splash-anim {
+	animation-name: garnishSplash;
+	animation-iteration-count: 2;
+	animation-timing-function: cubic-bezier(.4, .9, .9, .9);
+	animation-duration: 0.25s;
+}
+
+.float-anim {
+	animation-name: garnishFloat;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(.4, .9, .9, .9);
+	animation-duration: 0.25s;
+}
+
+.stalk-anim {
+	animation-name: garnishStalk;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(.4, .9, .9, .9);
+	animation-duration: 0.25s;
+}
+
+.rim-anim {
+	animation-name: garnishRim;
+	animation-iteration-count: 1;
+	animation-timing-function: cubic-bezier(.4, .9, .9, .9);
+	animation-duration: 0.25s;
+}
+
+@keyframes verticalFill {
+0% {
+	transform: translate(0, 150px);
+}
+	
+100% {
+	transform: translate(0, 0px);
+}
+}
+
+@keyframes verticalFillLong {
+0% {
+	transform: translate(0, 300px);
+}
+	
+100% {
+	transform: translate(0, -5px);
+}
+}
+
+@keyframes waveyFill {
+0% {
+	transform: translate(-150px, 0);
+}
+	
+100% {
+	transform: translate(0, 0);
+}
+}
+
+@keyframes bobbyFill {
+0% {
+	transform: translate(0, 0px);
+}
+
+50% {
+	transform: translate(0, 10px);
+}	
+	
+100% {
+	transform: translate(0, 0px);
+}
+}
+
+@keyframes garnishWedge {
+0% {
+	top: -150px;
+	opacity: 0;
+}
+	
+100% {
+	top: -80px;
+	opacity: 1;
+}
+}
+
+@keyframes garnishSplash {
+0% {
+	top: -150px;
+	opacity: 1;
+}
+	
+100% {
+	top: 0px;
+	opacity: 0;
+}
+}
+
+@keyframes garnishFloat {
+0% {
+	top: -150px;
+	opacity: 0;
+}
+	
+100% {
+	top: 0px;
+	opacity: 1;
+}
+}
+
+@keyframes garnishStalk {
+0% {
+	top: -150px;
+	opacity: 0;
+}
+	
+100% {
+	top: 20px;
+	opacity: 1;
+}
+}
+
+@keyframes garnishRim {
+0% {
+	top: -150px;
+	opacity: 0;
+}
+	
+100% {
+	top: 0;
+	opacity: 1;
+}
+}
+
+@media all and (max-width: 850px) {
+#work-area {
+	width: 50vw;
+}
+}
